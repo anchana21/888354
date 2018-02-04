@@ -1,0 +1,47 @@
+<html>
+<head>
+	<script>
+		function search(){
+			var text_input = document.getElementById('Text_Input').value;
+			var text_search = document.getElementById('Search').value;
+			var result_search = "";
+			if(document.getElementById('yes').checked == true){
+				result_search = text_input.match(RegExp(text_search,'g'));
+				if(result_search == null){
+					result_search = 0;
+				}else{
+					result_search = text_input.match(RegExp(text_search,'g')).length;
+				}
+			}else{
+				result_search = text_input.match(RegExp(text_search,'gi'));
+				if(result_search == null){
+					result_search = 0;	
+				}else{
+					result_search = text_input.match(RegExp(text_search,'gi')).length;
+				}
+			}
+			document.getElementById('result').innerHTML = result_search;
+		}
+	</script>
+</head>
+<body>
+<center>
+<h3>Ex2 Search String Non Sensitive Case</h3>
+<p><hr width="50% align="center"></p>
+  Text Input:
+  <textarea name="Text_Input" id = "Text_Input" rows="5" cols="30" ></textarea>
+  <br><br>
+  Sensitive Case:
+  <input type="radio" name="Sensitive Case" id = "yes" value="Yes" checked> Yes
+  <input type="radio" name="Sensitive Case" id = "no" value="No"> No
+  <br><br>
+  Search:
+  <input type="text" name="Search" id = "Search">
+  <br><br>
+  <input type="button" value="Search" onclick = "search()">
+  <br><br>
+  Result for Search : <span id = "result"></span>
+  </center>
+
+</body>
+</html>
