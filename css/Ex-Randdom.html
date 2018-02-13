@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#Randdom").click(function(){
+			var num1 = Math.floor(Math.random() * 1000);
+			var num2 = Math.floor(Math.random() * 1000);
+			$("#firstnum").html(num1);
+			$("#lastnum").html(num2);
+			$("#firstnum").val(num1);
+			$("#lastnum").val(num2);
+		});
+		$("#Send").click(function(){
+			var firstnum_random = $("#firstnum").val();
+			var lastnum_random = $("#lastnum").val();
+			var sum = $("#Number").val();
+			if(parseInt(firstnum_random) + parseInt(lastnum_random) == sum){
+				$("#result").html("that's correct");
+			}else{
+				$("#result").html("that's wrong. The answer is");
+			}
+		});
+	});
+</script>
+<style>
+
+</style>
+
+</head>
+<body>
+<center> 
+<h3>EX - Randdom Number for Answer</h3>
+<p><hr width="50% align="center"></p>
+
+  <input type="button" value="Randdom Number" id = "Randdom">
+  <br><br>
+  <span id = "firstnum">?</span> + <span id = "lastnum">?</span> =
+  <input type="text" name="Number" id = "Number">
+  <br><br>
+  <input type="button" value="Send Answer" id = "Send">
+  <br><br>
+  Result : <span id = "result"></span>
+</center>
+</body>
+</html>
